@@ -36,6 +36,7 @@ import Success from './success';
 import Wave from './wave';
 
 import './contribution.css';
+import { withRouter, RouteComponentProps } from 'react-router';
 
 const HAS_SEEN_ACCOUNT_MODAL_KEY = 'hasSeenAccountModal2';
 
@@ -88,7 +89,10 @@ interface PropsFromState {
   user: User.State;
 }
 
-interface Props extends WithLocalizationProps, PropsFromState {
+interface Props
+  extends WithLocalizationProps,
+    PropsFromState,
+    RouteComponentProps {
   activeIndex: number;
   errorContent?: any;
   reportModalProps: Omit<ReportModalProps, 'onSubmitted'>;
@@ -119,6 +123,7 @@ interface State {
   showReportModal: boolean;
   showShareModal: boolean;
   showShortcutsModal: boolean;
+  demoMode: boolean;
 }
 
 class ContributionPage extends React.Component<Props, State> {
@@ -132,6 +137,7 @@ class ContributionPage extends React.Component<Props, State> {
     showReportModal: false,
     showShareModal: false,
     showShortcutsModal: false,
+    demoMode: this.props.location.pathname.includes('demo'),
   };
 
   private canvasRef: { current: HTMLCanvasElement | null } = React.createRef();
@@ -598,4 +604,4 @@ export default connect<PropsFromState>(
     locale,
     user,
   })
-)(withLocalization(ContributionPage));
+)(withRouter(withLocalization(ContributionPage)));

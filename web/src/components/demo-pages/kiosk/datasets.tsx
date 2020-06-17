@@ -90,7 +90,7 @@ const DownloadForm = ({
       />
       <LinkButton
         rounded={true}
-        id="demo--download__sub-download-button"
+        className="primary-blue-linkbutton"
         href={
           emailRef.current &&
           emailRef.current.checkValidity() &&
@@ -340,7 +340,7 @@ export const datasets = (): PageContentType => {
           id="demo-datasets-card--next-button"
           to={urls.DEMO_DASHBOARD}
           rounded>
-          <Localized id="demo-language-select-card-button">
+          <Localized id="nav-button-next">
             <span />
           </Localized>
           <ChevronRight />

@@ -142,6 +142,8 @@ export const ChevronRight = (props: any) => (
   </svg>
 );
 
+export const ChevronLeft = Icon(require('./icons/chevron-left.svg'));
+
 export const ChevronDown = (props: any) => (
   <svg width="13px" height="9px" viewBox="0 0 13 9">
     <title>icon / down-arrow-black</title>

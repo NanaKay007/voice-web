@@ -18,6 +18,7 @@ import { PageContentType } from './types';
 import { datasets } from './datasets';
 import dashboard from './dashboard';
 import { Localized } from '@fluent/react';
+import contributeIntro from './contribute-intro';
 
 const BottomRightPane = () => {
   const [expanded, setExpanded] = React.useState(false);
@@ -130,6 +131,8 @@ function Kiosk() {
       case toLocaleRoute(urls.DEMO_DASHBOARD):
         page = dashboard();
         break;
+      case toLocaleRoute(urls.DEMO_CONTRIBUTE):
+        page = contributeIntro();
       // TODO: add more kiosk routes here
       default:
         break;
