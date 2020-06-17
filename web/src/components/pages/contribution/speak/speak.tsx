@@ -632,6 +632,7 @@ class SpeakPage extends React.Component<Props, State> {
           </Localized>
         )}
         <ContributionPage
+          demoMode={this.props.location.pathname.includes(URLS.DEMO)}
           activeIndex={recordingIndex}
           errorContent={this.displayError() && this.returnSpeakError()}
           instruction={props =>
