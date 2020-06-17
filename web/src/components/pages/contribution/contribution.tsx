@@ -36,7 +36,6 @@ import Success from './success';
 import Wave from './wave';
 
 import './contribution.css';
-import { withRouter, RouteComponentProps } from 'react-router';
 
 const HAS_SEEN_ACCOUNT_MODAL_KEY = 'hasSeenAccountModal2';
 
@@ -89,10 +88,8 @@ interface PropsFromState {
   user: User.State;
 }
 
-interface Props
-  extends WithLocalizationProps,
-    PropsFromState,
-    RouteComponentProps {
+interface Props extends WithLocalizationProps, PropsFromState {
+  demoMode: boolean;
   activeIndex: number;
   errorContent?: any;
   reportModalProps: Omit<ReportModalProps, 'onSubmitted'>;
@@ -123,7 +120,6 @@ interface State {
   showReportModal: boolean;
   showShareModal: boolean;
   showShortcutsModal: boolean;
-  demoMode: boolean;
 }
 
 class ContributionPage extends React.Component<Props, State> {
@@ -137,7 +133,6 @@ class ContributionPage extends React.Component<Props, State> {
     showReportModal: false,
     showShareModal: false,
     showShortcutsModal: false,
-    demoMode: this.props.location.pathname.includes('demo'),
   };
 
   private canvasRef: { current: HTMLCanvasElement | null } = React.createRef();
@@ -295,6 +290,7 @@ class ContributionPage extends React.Component<Props, State> {
       reportModalProps,
       type,
       user,
+      demoMode,
     } = this.props;
     const {
       showAccountModal,
@@ -347,7 +343,13 @@ class ContributionPage extends React.Component<Props, State> {
           ].join(' ')}>
           <div className="top">
             <LocaleLink
-              to={user.account ? URLS.DASHBOARD : URLS.ROOT}
+              to={
+                user.account
+                  ? URLS.DASHBOARD
+                  : demoMode
+                  ? URLS.DEMO_CONTRIBUTE
+                  : URLS.ROOT
+              }
               className="back">
               <ArrowLeft />
             </LocaleLink>
@@ -356,13 +358,13 @@ class ContributionPage extends React.Component<Props, State> {
               <Localized id="speak">
                 <LocaleNavLink
                   className={getTrackClass('fs', `toggle-speak`)}
-                  to={URLS.SPEAK}
+                  to={demoMode ? URLS.DEMO_SPEAK : URLS.SPEAK}
                 />
               </Localized>
               <Localized id="listen">
                 <LocaleNavLink
                   className={getTrackClass('fs', `toggle-listen`)}
-                  to={URLS.LISTEN}
+                  to={demoMode ? URLS.DEMO_LISTEN : URLS.LISTEN}
                 />
               </Localized>
             </div>
@@ -604,4 +606,4 @@ export default connect<PropsFromState>(
     locale,
     user,
   })
-)(withRouter(withLocalization(ContributionPage)));
+)(withLocalization(ContributionPage));
