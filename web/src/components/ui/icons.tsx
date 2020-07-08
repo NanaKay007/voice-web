@@ -124,21 +124,18 @@ export const CheckIcon = uniqueIcon((id, props) => (
 ));
 
 export const ChevronRight = (props: any) => (
-  <svg width="24" height="24" viewBox="0 0 24 24">
-    <defs>
-      <path
-        id="chevronLeft"
-        d="M15.7 12.7l-6 6c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l5.3-5.3-5.3-5.3c-.4-.4-.4-1 0-1.4.4-.4 1-.4 1.4 0l6 6c.4.4.4 1 0 1.4z"
-      />
-    </defs>
-    <g fill="none" fillRule="evenodd">
-      <mask id="chevronLeftb" fill="#fff">
-        <use xlinkHref="#chevronLeft" />
-      </mask>
-      <g fill="#4A4A4A" mask="url(#chevronLeftb)">
-        <path d="M0 0h24v24H0z" />
-      </g>
-    </g>
+  <svg
+    width="25"
+    height="24"
+    viewBox="0 0 25 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M9.23039 5.29289C9.62092 4.90237 10.2541 4.90237 10.6446 5.29289L16.6446 11.2929C17.0351 11.6834 17.0351 12.3166 16.6446 12.7071L10.6446 18.7071C10.2541 19.0976 9.62092 19.0976 9.23039 18.7071C8.83987 18.3166 8.83987 17.6834 9.23039 17.2929L14.5233 12L9.23039 6.70711C8.83987 6.31658 8.83987 5.68342 9.23039 5.29289Z"
+      fill="currentColor"
+    />
   </svg>
 );
 
