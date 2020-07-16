@@ -9,8 +9,10 @@ email-input =
 submit-form-action = Indsend
 loading = Indlæser…
 email-opt-in-info = Jeg vil gerne modtage mails såsom påmindelser om mål, opdateringer om mine fremskridt og nyhedsbreve om Common Voice.
-email-opt-in-privacy = Ved at tilmelde dig modtagelse af mails bekræfter du, at Mozilla må håndtere disse data i overensstemmelse med Mozillas <privacyLink>privatlivspolitik<privacyLink>.
+email-opt-in-info-title = Meld dig til mailinglisten for Common Voice
+email-opt-in-info-sub-with-challenge = Modtag mails med påmindelser om udfordringer og mål, opdateringer om fremskridt samt nyhedsbreve om Common Voice.
 indicates-required = * Betyder at feltet skal udfyldes
+not-available-abbreviation = Ikke tilgængelig
 
 # Don't rename the following section, its contents are auto-inserted based on the name (see scripts/pontoon-languages-to-ftl.js)
 # [Languages]
@@ -155,7 +157,7 @@ contact = Kontakt
 privacy = Privatliv
 terms = Vilkår
 cookies = Cookies
-faq = Ofte stillede spørgsmål
+faq = FAQ
 content-license-text = Indhold tilgængeligt under <licenseLink>Creative Commons-licens</licenseLink>
 share-title = Hjælp os med at finde andre, der kan bidrage med deres stemme!
 share-text = Hjælp med at lære maskiner, hvordan mennesker taler - bidrag med din stemme på { $link }
@@ -180,6 +182,7 @@ vote-yes = Ja
 vote-no = Nej
 toggle-play-tooltip = Tryk på { shortcut-play-toggle } for at starte eller stoppe afspilningen
 speak-subtitle = Donér din stemme
+speak-paragraph = Optagelse af stemmeklip er en vigtig del af opbygningen af vores åbne datasæt. Mange vil sige at det også er den sjoveste del.
 speak-goal-text = Klip optaget
 listen-subtitle = Hjælp os med at validere stemmer
 listen-paragraph = Validering af donerede klip er mindst lige så vigtigt for Common Voice-missionen. Lyt til et klip og hjælp os med at skabe kvalitets open source stemme-data.
@@ -211,17 +214,23 @@ x-years-short =
 help-make-dataset = Hjælp os med at opbygge et offentligt og åbent datasæt af høj kvalitet.
 sign-up-account = Opret en konto
 email-subscription-title = Tilmeld dig nyheder via mail
+email-subscription-title-new = Tilmeld dig nyhedsbreve fra Common Voice, påmindelser om mål og opdateringer om fremskridt
 
 ## Account Benefits
 
 benefits = Fordele
+rich-data = Gør dine indsendte data så informationsrige som muligt ved at indgive anonyme, demografiske data. Vi anonymiserer alle demografiske data, inden de offentliggøres.
 improve-audio = Informationerne på din profil forbedrer de lyddata, der bruges til træning af talegenkendelse.
+keep-track = Hold styr på dine fremskridt og mål på tværs af flere sprog.
+compare-progress = Se dine fremskridt sammenlignet med andre bidragsydere over hele verden.
+join-newsletter = Du kan eventuelt melde dig til vores mailliste for at få opdateringer og ny info om projektet.
 
 ## What's public
 
 whats-public = Hvad er offentligt?
 email-not-public = Vi offentliggør ikke din mailadresse.
 recordings-and-locale-public = Antallet af optagelser og hvilke sprog du bidrager til vil være offentligt.
+username-optin-public = Du kan vælge at gøre dit brugernavn offentligt eller anonymt.
 username-email-not-demographic = Dit brugernavn og din mailadresse vil ikke blive forbundet med de offentliggjorte data.
 
 ## Speak & Listen Shortcuts
@@ -313,6 +322,8 @@ edit = Rediger
 email-subscriptions = Mail-abonnementer
 download-profile = Hent mine data
 contribution-experience = Bidragserfaring
+skip-submission-feedback = Spring feedback over
+skip-submission-description = Ved indsendelse af bidrag ignoreres feedback efter at have klikket på "Send". Bidrag fortsætter direkte med det næste sæt af 5 optagelser eller valideringer.
 skip-submission-note = Bemærk: Du skal stadig vælge mellem Tal eller Lyt for at ændre bidragstype.
 off = Fra
 on = Til
@@ -333,6 +344,7 @@ connect-gravatar = Forbind med Gravatar
 gravatar_not_found = Ingen gravatar fundet for din mailadresse
 file_too_large = Den valgte fil er for stor
 manage-subscriptions = Håndter abonnementer
+manage-email-subscriptions = Administrer dine mail-abonnementer
 email-already-used = Mailadressen bruges allerede af en anden konto
 add-language = Tilføj sprog
 change-email-setings = Skift din mailadresse via Indstillinger under Login-identitet
@@ -344,6 +356,7 @@ faq-what-cv-q = Hvad er Common Voice?
 faq-why-important-q = Hvorfor er det vigtigt?
 faq-how-get-q = Hvordan får jeg fat i data fra Common Voice?
 faq-how-get-a = Datasættet fra Common Voice kan hentes under <licenseLink>CC0</licenseLink>-licensen på vores <datasetLink>side med datasæt</datasetLink>. Du kan også hente flere andre offentligt tilgængelige datasæt fra samme side.
+faq-when-release2-q = Hvornår udgiver I Common Voice-data på andre sprog?
 faq-why-mission-q = Hvorfor er Common Voice en del af Mozillas mission?
 faq-what-cv-and-deepspeech-q = Hvad er forskellen mellem Common Voice og Deep Speech?
 faq-is-goal-assistant-q = Er målet med Common Voice at opbygge en stemmeassistent?
@@ -352,8 +365,10 @@ faq-do-want-native-a = Ja, vi vil især gerne have din stemme! En del af formål
 faq-why-different-speakers-q = Hvorfor har i brug for så mange forskellige stemmer per sprog?
 faq-why-my-lang-q = Hvorfor er mit sprog her ikke?
 faq-what-quality-q = Hvilken lydkvalitet er nødvendig for at et stemmeklip kan bruges i datasættet?
+faq-why-10k-hours-a = Dette er cirka det antal timer, som det kræver at træne et velfungerende tale-til-tekst-system.
 faq-how-calc-hours-q = Hvordan bliver timerne udregnet af Common Voice?
 faq-how-calc-hours-a = Vi beregner timerne ved at estimere den gennemsnitlige længde af hver optagelse, og ganger det antal med det samlede antal optagelser på tværs af alle sprog.
+faq-where-src-from-2-q = Hvor kommer teksten fra?
 faq-why-not-ask-read-q = Hvorfor beder I ikke folk om at læse op fra bøger eller Wikipedia-artikler på forskellige sprog?
 faq-why-not-ask-read-a = For at gøre datasættet fra Common Voice så nyttigt som muligt, har vi besluttet kun at tillade tekst, der er tilgængeligt under en Creative Commons (CC0) licens. Brugen af CC0-standarden betyder, at det er sværere at finde og indsamle tekst, men tillader at alle kan bruge datasættet uden brugsbegrænsninger eller tilladelse fra Mozilla. I sidste ende ønsker vi at gøre det flersprogede datasæt så nyttigt som muligt for alle, herunder forskere, universiteter, iværksættere, regeringer, sociale formål og hobbyfolk.
 faq-why-account-q = Hvorfor skal jeg oprette en konto?
@@ -392,6 +407,8 @@ mycroft-description =
 
 glossary = Ordliste
 localization = Oversættelse
+hours-recorded-explanation = Antallet af stemmeoptagelser i timer, vi har samlet indtil videre.
+de-identified = Anonymiseret
 
 ## NotFound
 
@@ -432,6 +449,8 @@ review-delete-recordings = Slet mine optagelser
 language = Sprog
 # File size in gigabytes
 size = Størrelse
+validated-hr-total = Validerede timer i alt
+overall-hr-total = Samlede timer i alt
 cv-license = Licens
 audio-format = Lydformat
 number-of-voices = Antal stemmer
@@ -443,13 +462,17 @@ size-megabyte = MB
 download-language = Hent { $language }
 validated-hours = Validerede timer
 recorded-hours = Indspillede timer
+want-dataset-update = Vil du opdateres, når vi frigiver en ny version af datasættet fra Common Voice? Abonnér på vores nyhedsbrev.
 subscribe = Abonnér
 get-started-speech = Kom godt i gang med talegenkendelse
+feedback-q = Har du feedback?
+common-voice-info-new = Har du spørgsmål om Common Voice? Ideer til forbedringer eller feedback om et specifikt sprog? Deltag i vores <discourseLink>Discourse-forum</discourseLink> og fortæl os det.
 data-other-librispeech-description = LibriSpeech er et korpus af cirka 1000 timers engelsk tale (optaget ved 16Khz), der stammer fra lydbøger fra LibriVox-projektet.
 data-other-ted-name = TED-LIUM korpus
 data-other-ted-description = TED-LIUM korpus er lavet på baggrund af taler og deres transskriptioner fra TED's websted.
 data-other-voxforge-description = VoxForge blev startet for at indsamle transskriberet tale til brug for frie og open source talegenkendelses-systemer.
 data-other-tatoeba-description = Tatoeba er en stor database af sætninger, oversættelser og indtalt lyd til brug for sprogindlæring. Denne filhentning indeholder indtalt engelsk optaget af fællesskabet bag Tatoeba.
+your-feedback = Har du ideer til, hvordan vi kan forbedre datasættet fra Common Voice? Fortæl os det på Discourse
 go-discourse = Gå til Discourse
 go-languages-page = Gå til sprogsiden
 more = Mere

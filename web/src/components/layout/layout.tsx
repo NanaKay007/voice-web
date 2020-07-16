@@ -2,6 +2,7 @@ import { Localized } from '@fluent/react';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps, Redirect, withRouter } from 'react-router';
+import * as FullStory from '@fullstory/browser';
 import { LOCALES, NATIVE_NAMES } from '../../services/localization';
 import { trackGlobal, getTrackClass } from '../../services/tracker';
 import StateTree from '../../stores/tree';
@@ -86,7 +87,7 @@ const SegmentBanner = ({
       <>
         <Localized
           id="target-segment-first-banner"
-          vars={{locale: NATIVE_NAMES[locale]}}
+          vars={{ locale: NATIVE_NAMES[locale] }}
         />
       </>
     ),
@@ -109,7 +110,10 @@ const SegmentBanner = ({
           ),
         },
         {
-          href: locale === 'es' ? URLS.TARGET_SEGMENT_INFO_ES : URLS.TARGET_SEGMENT_INFO,
+          href:
+            locale === 'es'
+              ? URLS.TARGET_SEGMENT_INFO_ES
+              : URLS.TARGET_SEGMENT_INFO,
           blank: true,
           persistAfterClick: true,
           className: 'cta external',
@@ -150,7 +154,7 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
   };
 
   async componentDidMount() {
-    const { locale, api } = this.props;
+    const { locale, api, user } = this.props;
     this.scroller.addEventListener('scroll', this.handleScroll);
     this.visitHash();
 
@@ -164,6 +168,12 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
         challengeTeamToken !== undefined && challengeToken !== undefined,
       featureStorageKey: await this.getFeatureKey(locale),
     });
+
+    try {
+      FullStory.setUserVars({ isLoggedIn: !!user.account });
+    } catch (e) {
+      // do nothing if FullStory not initialized (see app.tsx)
+    }
   }
 
   componentDidUpdate(nextProps: LayoutProps, nextState: LayoutState) {
@@ -220,7 +230,7 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
     trackGlobal('change-language', locale);
     setLocale(locale);
     this.setState({
-       featureStorageKey: await this.getFeatureKey(locale)
+      featureStorageKey: await this.getFeatureKey(locale),
     });
     history.push(replacePathLocale(history.location.pathname, locale));
   };
@@ -285,9 +295,13 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
             teamToken={challengeTeamToken}
           />
         )}
-        {featureStorageKey && localStorage.getItem(featureStorageKey) !== 'true' && (
-          <SegmentBanner locale={locale} featureStorageKey={featureStorageKey} />
-        )}
+        {featureStorageKey &&
+          localStorage.getItem(featureStorageKey) !== 'true' && (
+            <SegmentBanner
+              locale={locale}
+              featureStorageKey={featureStorageKey}
+            />
+          )}
         {showStagingBanner && (
           <div className="staging-banner">
             You're on the staging server. Voice data is not collected here.{' '}
